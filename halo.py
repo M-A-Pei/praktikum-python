@@ -1,8 +1,19 @@
-# halo.py - program Python pertama
-nama = input("Masukkan nama Anda: ")
-print(f"Halo, {nama}! Selamat datang di praktikum Python.")
+import colorama
+from colorama import Fore, Back, Style
 
-print("Semoga Sukses!")
+from art import tprint
 
-umur = int(input("Masukkan umur Anda: "))
-print(f"Tahun depan umur Anda {umur + 1} tahun.")
+colorama.init()
+print(Back.WHITE, end="")
+
+tprint("PEI", font="block")
+
+
+try:
+    tahunLahir = int(input(Fore.CYAN + "Masukkan Tahun lahir Anda: "))
+    umur = 2026 - tahunLahir
+    print(Fore.GREEN + f"Halo, umur Anda di tahun 2026 adalah {umur} tahun.")
+except ValueError:
+    print(Fore.RED + "Peringatan: Input tidak valid! Harap masukkan angka saja.")
+
+print(Style.RESET_ALL, end="")
